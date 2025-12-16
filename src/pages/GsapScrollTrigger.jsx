@@ -8,25 +8,28 @@ gsap.registerPlugin(ScrollTrigger);
 const GsapScrollTrigger = () => {
     const scrollRef = useRef();
 
-    useGSAP(() => {
-        const boxes = gsap.utils.toArray(scrollRef.current.children);
+    useGSAP(
+        () => {
+            const boxes = gsap.utils.toArray(scrollRef.current.children);
 
-        boxes.forEach((box) => {
-            gsap.to(box, {
-                x: "30vw",
-                rotation: 360,
-                borderRadius: "100%",
-                scale: 3,
-                ease: "power1.inOut",
-                scrollTrigger: {
-                    trigger: box,
-                    start: "bottom bottom",
-                    end: "top 20%",
-                    scrub: true,
-                },
+            boxes.forEach((box) => {
+                gsap.to(box, {
+                    x: "30vw",
+                    rotation: 360,
+                    borderRadius: "100%",
+                    scale: 3,
+                    ease: "power1.inOut",
+                    scrollTrigger: {
+                        trigger: box,
+                        start: "bottom bottom",
+                        end: "top 20%",
+                        scrub: true,
+                    },
+                });
             });
-        });
-    }, []);
+        },
+        { scope: scrollRef }
+    );
 
     return (
         <main>
