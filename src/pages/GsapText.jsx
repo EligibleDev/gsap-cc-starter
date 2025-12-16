@@ -1,8 +1,5 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { TextPlugin } from "gsap/all";
-
-gsap.registerPlugin(TextPlugin);
 
 const GsapText = () => {
     useGSAP(() => {
